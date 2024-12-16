@@ -5,16 +5,21 @@ include_once("../src/controllers/MainController.php");
 include_once("../src/controllers/RegisterController.php");
 include_once("../src/controllers/LoginController.php");
 include_once("../src/controllers/LogOutController.php");
+include_once("../src/controllers/DeleteController.php");
+include_once("../src/controllers/AddController.php");
 
 include_once("../src/models/Db.php");
 include_once('../src/models/repositories/UserRepositories.php');
+
 include_once('../src/models/User.php');
+include_once('../src/models/repositories/PostRepositories.php');
+include_once('../src/models/Post.php');
 
 try {
     $router = new Router();
     $router->start();
 } catch (PDOException $err) {
-    echo($e->getMessage());
+    echo ($e->getMessage());
 }
 
 

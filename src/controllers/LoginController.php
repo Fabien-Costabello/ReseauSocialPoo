@@ -12,6 +12,7 @@ class LoginController extends Controller
                 if (isset($_POST['login'])) {
                     $mail = $_POST['mail'];
                     $password = $_POST['password'];
+                    if(UserRepositories::getUserByEmail($mail)){
                     $user = UserRepositories::getUserByEmail($mail);
                     $newUser = new User( $user['pseudo'], $user['mail'], $user['password']);
                     if ($user && $newUser->getPassword() == $password) {
@@ -19,7 +20,7 @@ class LoginController extends Controller
                         $_SESSION['user_id'] = $user['ID'];
                         $_SESSION['pseudo'] = $newUser->getPseudo();
                         include_once("../views/loggedView.php");
-                    } else {
+                    } }else {
                         include_once("../views/mainView.php");
                         echo "password ou mail incorrect";
                     }

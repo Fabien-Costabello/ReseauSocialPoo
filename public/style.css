@@ -1,0 +1,6 @@
+.post{
+    border: solid;
+    width: 21%;
+    display: flex;
+    align-items: center;
+}

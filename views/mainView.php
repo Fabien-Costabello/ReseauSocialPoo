@@ -31,9 +31,8 @@
             <label for="mail">Password</label>
             <input type="text" id="password" name="password">
             <button type="submit" name="login">Connexion
-
             </button>
-           
+        </form>
     </section>
 </body>
 
