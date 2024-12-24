@@ -18,7 +18,7 @@ class PostRepositories extends Db {
 
     static public function getPostById($id){
 
-        return self::request("SELECT * FROM post WHERE $id =$id ")->fetch(PDO::FETCH_ASSOC);
+        return self::request("SELECT * FROM post WHERE id =$id ")->fetch(PDO::FETCH_ASSOC);
 
     }
 
@@ -32,10 +32,29 @@ class PostRepositories extends Db {
     {
         $poster_id = $post->getPosterId();
         $titre = $post->getTitre();
-        $contenu = $post->getContenu();
+        $contenu = addslashes($post->getContenu());
         $auteur = $post->getAuteur();
     
         return self::request("INSERT INTO post(poster_id, titre, contenu, auteur) VALUES ($poster_id, '$titre', '$contenu', '$auteur')");
     }
+    
+
+    static public function editPost(Post $post){
+        $id = $post->getId();
+        $titre = $post->getTitre();
+        $contenu = $post->getContenu();
+
+        return self::request("UPDATE post SET titre = '$titre',contenu = '$contenu' WHERE id='$id'");
+
+    }
+
+    static public function likePOst( $id,$poster_id){
+        return self::request("UPDATE post SET likes = likes +1 WHERE id='$id'");
+    }
+
+    static public function dislikePOst( $id,$poster_id){
+        return self::request("UPDATE post SET likes = likes -1 WHERE id='$id'");
+    }
+
     
 }

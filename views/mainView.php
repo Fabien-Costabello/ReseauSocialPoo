@@ -19,9 +19,7 @@
                 <input type="text" id="mail" name="mail">
                 <label for="mail">Password</label>
                 <input type="text" id="password" name="password">
-                <button type="submit" name="creationCompte">Création du compte
-
-                </button>
+                <button type="submit" name="creationCompte">Création du compte</button>
             </form>
         </article>
         <h2>Connexion</h2>

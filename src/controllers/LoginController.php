@@ -19,6 +19,7 @@ class LoginController extends Controller
                         session_start();
                         $_SESSION['user_id'] = $user['ID'];
                         $_SESSION['pseudo'] = $newUser->getPseudo();
+                        
                         include_once("../views/loggedView.php");
                     } }else {
                         include_once("../views/mainView.php");
